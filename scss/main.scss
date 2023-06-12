@@ -1,0 +1,244 @@
+$primary-color: #FFEFE7;
+$secundary-color: #FFDAC6;
+$tertiary-color: #BABD8D;
+$primary-text-color: #7C6A0A;
+$quaternary-color: #FA9500;
+$font-stack: 'IBM Plex Sans', sans-serif;
+$paragraph-size: 2.4rem;
+
+@mixin flexCenter ($direction, $content, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+@mixin buttonStyle {
+    button {
+        background: none;
+        border-style: none;
+    }
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: $primary-color;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: $font-stack;
+}
+
+nav {
+    width: auto;
+    padding: 15px;
+    @include flexCenter(row, space-between, center);
+    color: $primary-text-color;
+    p {
+        font-size: $paragraph-size;
+        padding-left: 30px;
+    }
+    .icons {
+        display: flex;
+        gap: 15px;
+        @include buttonStyle;
+    }
+}
+
+article {
+    width: auto;
+    padding-left: 45px;
+    padding-right: 45px;
+    display: flex;
+    justify-content: space-between;
+    color: $primary-text-color;
+    .impact-section {
+        @include flexCenter(column, space-evenly , flex-start); 
+        gap: 25px;
+        padding-top: 50px;
+    }
+    h1 {
+        font-size: 4.8rem;
+        padding: 0px;
+        margin: 0px;
+    }
+    p {
+        font-size: $paragraph-size;
+    }
+    @include buttonStyle;
+    button {
+        width: 12vw;
+        padding: 20px;
+        background-color: $quaternary-color;
+        border-style: none;
+        border-radius: 35px;
+        color: white;
+        font-size: 1.6rem;
+        &:hover {
+            transform: scale(1.1);
+            transition-duration: 0.3s;
+        }
+    }
+    img {
+            width: 25vw;
+            border-radius: 19px;
+    }
+}
+
+section {
+    width: auto;
+    height: auto;
+    padding: 60px;
+    h2 {
+        color: $primary-text-color;
+        font-size: 3.2rem;
+    }
+    .healthcare {
+        padding-bottom: 60px;
+        h2 {
+            font-weight: 300;
+            padding-bottom: 60px;
+        }
+        .card-section {
+            @include flexCenter(row, space-evenly , center); 
+            flex-wrap: wrap;
+            column-gap: 200px;
+            row-gap: 80px;
+            width: auto;
+            height: auto;
+        }
+        .product-card {
+            width: 14vw;
+            height: 45vh;
+            background-color: $secundary-color;
+            color: $primary-text-color;
+            padding: 20px;
+            border-radius: 8px;
+            .icon {
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                padding-bottom: 12px;
+                svg {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+            .product-image {
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    width: 12vw;
+                    height: 30vh;
+                    object-fit: cover;
+                    border-radius: 6px;
+                }
+            }
+            h3 {
+               font-size: 1.7rem; 
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }    
+
+    }
+    .furniture {
+        @extend .healthcare;
+        .product-card {
+            background-color: $tertiary-color;
+            color: white;
+        }
+
+    }
+}
+
+.about-us {
+    padding-bottom: 60px;
+    h2 {
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mission-section {
+        @include flexCenter(row, space-evenly , center);
+        .earth {
+            $text-color: #E86424;
+            width: 30vw;
+            display: flex;
+            gap: 40px;
+            color: $text-color
+            img {
+                object-fit: contain;
+            }
+            p {
+                text-align: center;
+                font-size: $paragraph-size;
+            }
+        } 
+    }
+    .innovation {
+        @extend .earth;
+    }
+}
+
+.gallery {
+    h2 {
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .gallery-images {
+        @include flexCenter(row, space-between , center);
+        img {
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover {
+                transform: scale(1.1);
+                transition-duration: 0.3s;
+            }
+        }
+    }
+}
+
+.location {
+    $text-color: #E86424;
+    color: $text-color;
+    h2 {
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    .map {
+        @include flexCenter(row, center , center );
+        padding-bottom: 50px;
+    }
+    
+    h3,p {
+        font-size: $paragraph-size;
+    }
+}
+
+.footer {
+    padding: 40px;
+    background-color: $quaternary-color;
+    width: 100%;
+    height: auto;
+    color: white;
+    h3 {
+        font-size: $paragraph-size
+    }
+    p {
+        font-size: 2rem;
+    }
+    .social-media {
+        @include flexCenter(row, center , center);
+        gap: 40px;
+        padding-bottom: 10px;
+    }
+}
